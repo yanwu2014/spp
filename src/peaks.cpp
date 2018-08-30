@@ -22,6 +22,8 @@ using namespace std;
 //#define DEBUG 1
 
 extern "C" {
+  
+  // Find all local maxima
   SEXP find_peaks(SEXP x_R,SEXP thr_R,SEXP max_span_R) {
 
 #ifdef DEBUG  

@@ -35,6 +35,7 @@ extern SEXP read_meland(SEXP, SEXP);
 extern SEXP read_tagalign(SEXP);
 extern SEXP region_intersection(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
 extern SEXP spp_wtd(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
+extern SEXP find_peaks(SEXP, SEXP, SEXP);
 
 static const R_CMethodDef CEntries[] = {
     {"cdensum", (DL_FUNC) &cdensum, 9},
@@ -59,6 +60,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"read_tagalign",                    (DL_FUNC) &read_tagalign,                     1},
     {"region_intersection",              (DL_FUNC) &region_intersection,               6},
     {"spp_wtd",                          (DL_FUNC) &spp_wtd,                              15},
+    {"find_peaks",                          (DL_FUNC) &find_peaks,                              3},
     {NULL, NULL, 0}
 };
 

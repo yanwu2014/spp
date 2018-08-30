@@ -1,8 +1,16 @@
 #library(caTools)
-#dyn.load("src/bed2vector.so");
-#dyn.load("src/wdl.so");
-#dyn.load("src/peaks.so");
-#dyn.load("src/cdensum.so");
+# dyn.load("src/bed2vector.so");
+# dyn.load("src/wdl.so");
+# dyn.load("src/peaks.so");
+# dyn.load("src/cdensum.so");
+
+## Wrapper for finding peaks
+peaks.c <- function(x, thr = min(x), max.span = 1) {
+  storage.mode(x) <- storage.mode(thr) <- "double";
+  storage.mode(max.span) <- "integer";
+  results <- .Call("find_peaks", x, thr, max.span, PACKAGE = "spp");
+  return(results);
+}
 
 
 # -------- ROUTINES FOR READING IN THE DATA FILES ------------
